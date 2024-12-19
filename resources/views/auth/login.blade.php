@@ -48,7 +48,7 @@
                 </div>
             </div>
         </div>
-        <div class="hidden lg:block lg:w-1/2 bg-gradient-to-r from-green-400 to-blue-500 text-white flex flex-col justify-center items-center p-16">
+        <div class="hidden lg:block lg:w-1/2 bg-gradient-to-r from-green-400 to-blue-500 text-white p-16">
             <div class="lg:block h-full max-h-screen flex items-center justify-center bg-center bg-no-repeat" style="background-image: url('/images/cocktail.png'); background-size: contain;">
             </div>
         </div>
