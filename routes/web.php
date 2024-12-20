@@ -1,20 +1,19 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CocktailController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
     Route::redirect('/', '/login');
 });
 
-Route::get('/home', function () {
-    return view('home');
-})->middleware(['auth', 'verified'])->name('home');
-
 Route::middleware('auth')->group(function () {
-    Route::redirect('/', '/home');
-
-    Route::get('/cocktails', [CocktailController::class, 'index'])->name('cocktails');
+    Route::get('/', [CocktailController::class, 'index'])->name('home');
+    Route::get('/cocktails', [CocktailController::class, 'search'])->name('cocktails.search');
+    Route::post('/cocktails/save', [CocktailController::class, 'save'])->name('cocktails.save');
+    Route::delete('/cocktails/delete', [CocktailController::class, 'destroy'])->name('cocktails.delete');
+    Route::get('/saved', [CocktailController::class, 'saved'])->name('cocktails.saved');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
